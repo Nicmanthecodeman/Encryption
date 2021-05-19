@@ -1,0 +1,8 @@
+﻿nav.navbar{
+    margin-bottom: 0!important;
+    border-bottom: 0!important;
+}
+
+#contentRow{
+    height: calc(100vh - 54.81px);
+}

@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Dashboard", new { Area = "User" })">
+        <button type="button" onclick="AttemptLogout()" class="dropdown-item btn btn-link text-dark"><i class="fas fa-sign-out-alt mr-1"></i>Logout</button>
+    </form>
+}
+else
+{
+    <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-sign-in-alt mr-1"></i>Login</a>
+}

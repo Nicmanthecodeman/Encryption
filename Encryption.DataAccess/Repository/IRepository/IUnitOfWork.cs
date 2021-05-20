@@ -7,6 +7,8 @@ namespace Encryption.DataAccess.Repository.IRepository
     {
         IApplicationUserRepository ApplicationUser { get; }
 
+        IAttachmentRepository Attachment { get; }
+
         Task SaveAsync();
     }
 }

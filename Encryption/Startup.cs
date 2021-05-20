@@ -56,6 +56,8 @@ namespace Encryption
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
 
+            services.AddDataProtection();
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -85,7 +87,7 @@ namespace Encryption
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            app.UseRouting();            
 
             app.UseAuthentication();
             app.UseAuthorization();

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Files";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="get" asp-area="User" asp-controller="Attachment" asp-action="Download" id="attachment-download-form">
+    <input type="hidden" id="attachmentId" name="id" />
+</form>
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Files</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-area="User" asp-controller="Encrypt" asp-action="Encrypt"><i class="fas fa-key mr-2"></i>Encrypt</a>
+            <a class="btn btn-secondary" asp-area="Admin" asp-controller="Role" asp-action="Upsert"><i class="fas fa-plus mr-2"></i>Decrypt</a>
+        </div>
+    </div>
+
+    <br />
+    <div class="p-4 border rounded">
+        <table id="tblData" class="table table-sm table-striped table-bordered" style="width:100%">
+            <thead class="thead-dark">
+                <tr class="table-info">
+                    <th>File Name</th>
+                    <th>Mime Type</th>
+                    <th>Uploaded</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/User/attachment.js"></script>
+}

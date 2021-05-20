@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Encryption.Enums\Encryption.Enums.csproj" />
     <ProjectReference Include="..\Encryption.Models\Encryption.Models.csproj" />
+    <ProjectReference Include="..\Encryption.Services\Encryption.Services.csproj" />
     <ProjectReference Include="..\Encryption.Utility\Encryption.Utility.csproj" />
   </ItemGroup>
 

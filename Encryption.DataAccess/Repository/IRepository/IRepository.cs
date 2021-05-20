@@ -21,6 +21,8 @@ namespace Encryption.DataAccess.Repository.IRepository
 
         Task AddAsync(T entity);
 
+        Task AddRangeAsync(IEnumerable<T> entities);
+
         Task RemoveAsync(int id);
 
         void Remove(T entity);

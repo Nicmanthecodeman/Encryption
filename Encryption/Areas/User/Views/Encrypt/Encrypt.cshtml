@@ -1,0 +1,66 @@
+﻿@model Encryption.Models.ViewModels.EncryptionVM
+
+@{
+    ViewData["Title"] = "Encrypt";
+}
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row p-3 border">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-12 border-bottom">
+                <h2 class="text-primary">Encrypt File</h2>
+            </div>
+            <div class="col-8 pt-4">
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="FormFiles"></label>
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input asp-for="FormFiles" type="file" multiple class="form-control custom-file-input setFocus" accept=".txt,.zip,.rar,image/*" />
+                                <label class="custom-file-label"></label>
+                            </div>
+                        </div>
+                        <span asp-validation-for="FormFiles" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Password"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="offset-4 col-8">
+                        <div class="custom-control custom-switch">
+                            <input asp-for="DownloadEncryptedFileAutomatically" class="custom-control-input">
+                            <label asp-for="DownloadEncryptedFileAutomatically" class="custom-control-label"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-key"></i>
+                            Encrypt
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/User/Encrypt.js"></script>
+}

@@ -1,8 +1,53 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="jumbotron">
+        <div class="text-center">
+            <h1 class="text-primary">Welcome @User.Identity.Name!</h1>
+        </div>
+
+        <hr />
+
+        <div class="row row-cols-1 row-cols-md-3">
+            <div class="col mb-4">
+                <div class="card border border-success h-100">
+                    <div class="text-center p-2">
+                        <i class="fa fa-lock fa-10x"></i>
+                    </div>                    
+                    <div class="card-body">
+                        <h5 class="card-title"><strong><a asp-area="User" asp-controller="Encrypt" asp-action="Encrypt" class="stretched-link btn btn-primary btn-block">Encrypt Files</a></strong></h5>
+                        <hr />
+                        <p class="card-text">Encrypt text files, images, .zip files, etc.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card border border-danger h-100">
+                    <div class="text-center p-2">
+                        <i class="fa fa-unlock fa-10x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong><a href="#" class="stretched-link btn btn-primary btn-block">Decrypt Files</a></strong></h5>
+                        <hr />
+                        <p class="card-text">Decrypt text files, images, .zip files, etc.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card border border-primary h-100">
+                    <div class="text-center p-2">
+                        <i class="fas fa-file-download fa-10x"></i>                        
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong><a asp-area="User" asp-controller="Attachment" asp-action="Index" class="stretched-link btn btn-primary btn-block">My Files</a></strong></h5>
+                        <hr />
+                        <p class="card-text">Download Encrypted files you have uploaded.</p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+    </div>
 </div>

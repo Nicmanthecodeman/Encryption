@@ -4,14 +4,16 @@ using Encryption.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Encryption.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210520061958_AddedAttachmentsToDb")]
+    partial class AddedAttachmentsToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,7 +95,7 @@ namespace Encryption.DataAccess.Migrations
                     b.ToTable("ApplicationUsers", "auth");
                 });
 
-            modelBuilder.Entity("Encryption.Models.Attachment", b =>
+            modelBuilder.Entity("Encryption.Models.Attachments", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,18 +105,10 @@ namespace Encryption.DataAccess.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<byte[]>("Content")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("FileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MimeType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Uploaded")
@@ -258,7 +252,7 @@ namespace Encryption.DataAccess.Migrations
                     b.ToTable("ApplicationUserTokens", "auth");
                 });
 
-            modelBuilder.Entity("Encryption.Models.Attachment", b =>
+            modelBuilder.Entity("Encryption.Models.Attachments", b =>
                 {
                     b.HasOne("Encryption.Models.ApplicationUser", "Uploader")
                         .WithMany("Attachments")

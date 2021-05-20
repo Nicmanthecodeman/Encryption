@@ -10,9 +10,13 @@ namespace Encryption.DataAccess.Repository
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
+            ApplicationUser = new ApplicationUserRepository(_db);
+            Attachment = new AttachmentRepository(_db);
         }
 
         public IApplicationUserRepository ApplicationUser { get; private set; }
+
+        public IAttachmentRepository Attachment { get; private set; }
 
         public void Dispose()
         {
